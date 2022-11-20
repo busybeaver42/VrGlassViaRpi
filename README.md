@@ -56,13 +56,16 @@ My motivation was to learn how to build such a system and to reuse parts or the 
     dtoverlay=w1-gpio
 
 #### optional - Launching the display driver at startup with systemd
+
     cd /home/pi/fbcp-ili9341/build/
     sudo  mv fbcp-ili9341 fbcp
     sudo cp fbcp /usr/local/sbin
+    cd ..
+    cp fbcp-ili9341.conf fbcp.conf
+    cp fbcp-ili9341.service fbcp.service
+    modify fbcp.service and change all names from fbcp-ili9341 into fbcp
     sudo install -m 0644 -t /etc fbcp.conf 
     sudo install -m 0755 -t /etc/systemd/system fbcp.service 
-    
-    todo: modify fbcp.service and change all names from fbcp-ili9341 to fbcp
-    
+
     sudo systemctl daemon-reload
     sudo systemctl enable fbcp && sudo systemctl start fbcp
