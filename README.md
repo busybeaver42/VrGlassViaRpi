@@ -69,3 +69,23 @@ My motivation was to learn how to build such a system and to reuse parts or the 
 
     sudo systemctl daemon-reload
     sudo systemctl enable fbcp && sudo systemctl start fbcp
+
+### Config the Network
+    All system must be in the same network.
+
+    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+    
+    modify it and use your own settings:
+    
+        ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+        
+        update_config=1
+        country=DE
+
+        network={
+                ssid="MyHotspot"
+                psk="MyPWDfromHotspot"
+                key_mgmt=WPA-PSK
+        }
+
+
