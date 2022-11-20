@@ -16,6 +16,7 @@ My motivation was to learn how to build such a system and to reuse parts or the 
     sudo apt update
     sudo apt upgrade
     sudo apt-get install cmake git
+    sudo apt install -y ffmpeg
 
     cd ~
     git clone https://github.com/juj/fbcp-ili9341.git
