@@ -1,0 +1,4 @@
+Wer: BusyBeaver 
+Wie wir es gemacht: Übersicht - grobe Architektur
+was macht es: Zweck vom System, was soll erreicht werden. Es soll eine 3D Brille entstehen, die 3D inhalte mit einem 3D Effekt darstellen kann. 
+warum Motivation: Low cost VR System um 3D Inhalte nutzen zu können, um teile oder das ganze Projekt in nachfolgenden open source Projekte zu verwenden. Und zum lernen wie man ein solches System aufbaut. 
