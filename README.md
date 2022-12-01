@@ -11,12 +11,18 @@ Using Gear VR Optic System from Samsung, two 1.3 inch LCD Displays and two RPI Z
 My motivation was to learn how to build such a system and to reuse parts or the whole project for following projects.
 
 ## Install Instructions
+### Precondition
+32 GB SDcard (e.g.: SanDisk Extreme) with Raspberry Pi OS Lite (bullseye)
+OS image donwload below: https://www.raspberrypi.com/software/operating-systems/
+
+    sudo raspi-config
+    enable interface SPI for the LCD display (and additional I2C on the RPI Zero W for the right Eye LCD).
+
 ### Rpi Zero W
 
     sudo apt update
     sudo apt upgrade
-    sudo apt-get install cmake git
-    sudo apt install -y ffmpeg
+    sudo apt install -y cmake git ffmpeg
 
     cd ~
     git clone https://github.com/juj/fbcp-ili9341.git
