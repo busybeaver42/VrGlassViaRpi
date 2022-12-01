@@ -22,8 +22,8 @@ OS image donwload below: https://www.raspberrypi.com/software/operating-systems/
 
     sudo apt update
     sudo apt upgrade
-    sudo apt install -y cmake git ffmpeg
-
+    sudo apt install -y cmake git
+    sudo apt install -y ffmpeg
     cd ~
     git clone https://github.com/juj/fbcp-ili9341.git
     cd fbcp-ili9341
