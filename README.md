@@ -16,7 +16,7 @@ My motivation was to learn how to build such a system and to reuse parts or the 
 OS image donwload below: https://www.raspberrypi.com/software/operating-systems/
 
     sudo raspi-config
-    enable interface SPI for the LCD display (and additional I2C on the RPI Zero W for the right Eye LCD).
+    enable interface SPI for the LCD display (and additional I2C on the Rpi for the right Eye LCD).
 
 ### Rpi Zero W
 
@@ -59,7 +59,7 @@ OS image donwload below: https://www.raspberrypi.com/software/operating-systems/
     
     [all]
     #dtoverlay=vc4-fkms-v3d
-    gpu_mem=256
+    gpu_mem=128
     dtoverlay=w1-gpio
 
 #### optional - Launching the display driver at startup with systemd
@@ -76,6 +76,10 @@ OS image donwload below: https://www.raspberrypi.com/software/operating-systems/
 
     sudo systemctl daemon-reload
     sudo systemctl enable fbcp && sudo systemctl start fbcp
+    
+    ------------------------------------------------------------
+    
+    sudo reboot
 
 ### Config the Network
     All system must be in the same network.
