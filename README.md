@@ -23,7 +23,11 @@ OS image donwload below: https://www.raspberrypi.com/software/operating-systems/
     sudo apt update
     sudo apt upgrade
     sudo apt install -y cmake git
+    sudo apt install -y libjpeg9-dev
     sudo apt install -y ffmpeg
+    
+#### Install framebuffer LCD display driver
+
     cd ~
     git clone https://github.com/juj/fbcp-ili9341.git
     cd fbcp-ili9341
@@ -32,7 +36,25 @@ OS image donwload below: https://www.raspberrypi.com/software/operating-systems/
     cmake -DST7789VW=ON -DGPIO_TFT_DATA_CONTROL=25 -DGPIO_TFT_RESET_PIN=27 -DGPIO_TFT_BACKLIGHT=24 -DSINGLE_CORE_BOARD=ON -DBACKLIGHT_CONTROL=ON -DDISPLAY_CROPPED_INSTEAD_OF_SCALING=ON -DSTATISTICS=0 -DSPI_BUS_CLOCK_DIVISOR=8 -DDISPLAY_ROTATE_180_DEGREES=OFF ..
 
     make
-    sudo ./fbcp-ili9341
+    
+    The result is the file: fbcp-ili9341.
+    If you modify your config.txt(see description below), then can this programm switch the display output from HDMI output to the LCD display.
+    After a reboot is the HDMI still the normal output. Below you will found a description to add this inside autostart(LCD display active).
+    
+#### Install ffmpeg streamer
+
+    git clone https://github.com/jacksonliam/mjpg-streamer.git
+    cd mjpg-streamer/mjpg-streamer-experimental
+    make
+
+    sudo cp mjpg_streamer /usr/local/bin
+    sudo cp output_http.so input_file.so input_uvc.so /usr/local/lib/
+    sudo cp -R www /usr/local/www
+
+    sudo nano ~/.bashrc
+    add to the last line
+    export LD_LIBRARY_PATH=/usr/local/lib
+    and enter ans save.
 
 #### modify the config.txt options
 >sudo nano /boot/config.txt
